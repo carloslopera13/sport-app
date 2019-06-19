@@ -8,9 +8,9 @@ export const CREATE_TRAINER_SUCCESS = "CREATE_TRAINER_SUCCESS";
 export const CREATE_SPORT_SUCCESS = "CREATE_SPORT_SUCCESS";
 
 /* API CONSTANTS */
-export const LOGIN_API = "https://api.myjson.com/bins/10ees1";
-export const SPORTS_API = "https://api.myjson.com/bins/13m5g1";
-export const TRAINERS_API = "https://api.myjson.com/bins/adrn5";
+export const LOGIN_API = "localhost:8080/sged_api/api/login";
+export const SPORTS_API = "localhost:8080/sged_api/api/Secured/sports";
+export const TRAINERS_API = "localhost:8080/sged_api/api/Secured/trainers";
 
-export const SPORTS_API_CREATE = "https://api.myjson.com/bins/13m5g1";
-export const TRAINERS_API_CREATE = "https://api.myjson.com/bins/adrn5";
+export const SPORTS_API_CREATE = "localhost:8080/sged_api/api/Secured/sports/create";
+export const TRAINERS_API_CREATE = "localhost:8080/sged_api/api/Secured/trainers/create";

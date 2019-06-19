@@ -35,7 +35,7 @@ public class LoginFilter implements ContainerRequestFilter {
                 String authToken = authHeader.get(0);
                 authToken = authToken.replaceFirst(AUTHORIZATION_HEADER_PREFIX, "");
                 String decodedString = new String(Base64.decode(authToken));
-                System.out.println("Decoded String here bitch: " + decodedString);
+                //System.out.println("Decoded String here bitch: " + decodedString);
                 StringTokenizer tokenizer = new StringTokenizer(decodedString, ":");
                 String cedula = tokenizer.nextToken();
                 String password = tokenizer.nextToken();
