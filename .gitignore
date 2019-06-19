@@ -60,6 +60,9 @@ typings/
 # dotenv environment variables file
 .env
 
+#compilado react
+build/
+
 #Netbeans
 Backend/sged_api/nb-configuration.xml
 *.war
