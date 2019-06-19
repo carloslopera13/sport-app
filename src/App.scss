@@ -1,27 +1,27 @@
 /* Project Fonts */
-@import url('https://fonts.googleapis.com/css?family=Maiden+Orange|Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Poppins&display=swap");
 
 /* Project Variables */
 :root {
   /* Colors */
-  --primary-color: #10A5F5;
-  --secondary-color: #0C71E0;
-  --tertiary-color: #0859C6;
+  --primary-color: #10a5f5;
+  --secondary-color: #0c71e0;
+  --tertiary-color: #0859c6;
   --white: #fff;
   --black: #323232;
-  --lannister-color: #A61619;
-  --tyrell-color: #1C901B;
-  --stark-color: #BBBCC0;
-  --greyjoy-color: #D2AE87;
-  --targaryen-color: #BD3016;
-  --arryn-color: #2D2647;
-  --martell-color: #C66230;
-  --baratheon-color: #F3D526;
-
+  --font: #53575a;
+  --lannister-color: #a61619;
+  --tyrell-color: #1c901b;
+  --stark-color: #dfe0e0;
+  --greyjoy-color: #d2ae87;
+  --targaryen-color: #bd3016;
+  --arryn-color: #2d2647;
+  --martell-color: #c66230;
+  --baratheon-color: #f3d526;
 
   /* Fonts */
-  --fontface-bold: "Maiden Orange", sans-serif;
-  --fontface-regular: "Roboto", sans-serif;
+  --fontface-bold: "Lato", sans-serif;
+  --fontface-regular: "Poppins", sans-serif;
 
   /* Breakpoints */
   --small: 20rem;
@@ -44,13 +44,24 @@ html {
 }
 
 body {
-  background: linear-gradient(var(--black),var(--tertiary-color) 120%);
-  color: var(--white);
+  color: var(--font);
   font-family: var(--fontface-regular);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.15;
   min-height: 100vh;
+}
+
+input {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--stark-color);
+  padding: 8px;
+  border-radius: 5px;
+  font-family: var(--fontface-regular);
+  outline: none;
+  box-shadow: 1px 1px 1px #d3d4d6;
+  font-size: 14px;
 }
 
 h1,
@@ -61,6 +72,7 @@ h5,
 h6 {
   color: var(--primary-color);
   font-family: var(--fontface-bold);
+  text-transform: uppercase;
 }
 
 a {
@@ -90,7 +102,14 @@ img {
 
 button {
   background-color: transparent;
-  border: 0;
   cursor: pointer;
   outline: none;
+  border: 2px solid var(--primary-color);
+  color: var(--white);
+  padding: 8px 24px;
+  text-transform: uppercase;
+  background: var(--secondary-color);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
 }

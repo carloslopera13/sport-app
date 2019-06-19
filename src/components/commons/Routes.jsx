@@ -1,27 +1,36 @@
 import React from "react";
-import "./style.css"
+import { useSelector } from "react-redux";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect
 } from "react-router-dom";
+
 import Home from "./Home";
 import Admin from "./Admin";
 import Trainer from "./TrainersT";
 import Sports from "./Sports";
-import { useSelector } from "react-redux";
 import Trainers from "./Trainers";
 import Profile from "./Profile";
 
-export const Routes = () => {
-  const isAuthenticated = useSelector(
-    state => state.ACCOUNT_REDUCER.isAuthenticated
-  );
+import "./style.scss";
+import ProfileTrainer from "./ProfileTrainer";
+import ProfileSport from "./ProfileSport";
+
+export const Routes = React.memo(() => {
+  const { isAuthenticated, rol } = useSelector(state => state.ACCOUNT_REDUCER);
+
   return (
     <Router>
       <Switch>
-        <PublicRoute path="/" exact authed={isAuthenticated} component={Home} />
+        <PublicRoute
+          path="/"
+          exact
+          rol={rol}
+          authed={isAuthenticated}
+          component={Home}
+        />
         <PrivateRoute
           path="/admin"
           authed={isAuthenticated}
@@ -50,6 +59,16 @@ export const Routes = () => {
           authed={isAuthenticated}
         />
         <PrivateRoute
+          path="/trainer/:id"
+          component={ProfileTrainer}
+          authed={isAuthenticated}
+        />
+        <PrivateRoute
+          path="/sport/:id"
+          component={ProfileSport}
+          authed={isAuthenticated}
+        />
+        <PrivateRoute
           path="/admin/profile"
           component={Profile}
           authed={isAuthenticated}
@@ -64,7 +83,7 @@ export const Routes = () => {
       </Switch>
     </Router>
   );
-};
+});
 
 // Private and Public routes utils
 const PrivateRoute = ({ component: Component, authed, ...rest }) => (
@@ -80,11 +99,17 @@ const PrivateRoute = ({ component: Component, authed, ...rest }) => (
   />
 );
 
-const PublicRoute = ({ component: Component, authed, ...rest }) => (
+const PublicRoute = ({ component: Component, authed, rol, ...rest }) => (
   <Route
     {...rest}
     render={props =>
-      authed === false ? <Component {...props} /> : <Redirect to="/trainer" />
+      authed === false ? (
+        <Component {...props} />
+      ) : rol === "admin" ? (
+        <Redirect to="/admin" />
+      ) : (
+        <Redirect to="/trainer" />
+      )
     }
   />
 );

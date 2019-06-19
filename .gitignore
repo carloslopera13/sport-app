@@ -64,3 +64,4 @@ typings/
 Backend/sged_api/nb-configuration.xml
 *.war
 Backend/sged_api/target/
+/backend/sged_api/target/
