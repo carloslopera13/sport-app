@@ -33,6 +33,16 @@
   }
 }
 
+.admin {
+  &__image {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 50vw;
+    z-index: -1;
+  }
+}
+
 .profile {
   display: flex;
   justify-content: center;

@@ -7,6 +7,7 @@ const Trainer = () => (
     <ul className="trainer__options">
       <li className="trainer__options-item">
         <Link to="/trainer/profile">Mi Perfil</Link>
+        <br />
         <Link to="/trainer/sports">Deportes</Link>
       </li>
     </ul>

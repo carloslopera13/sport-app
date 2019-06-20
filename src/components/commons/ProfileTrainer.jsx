@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 const ProfileTrainer = React.memo(({ match }) => {
-  const { trainers } = useSelector(state => state.ACCOUNT_REDUCER);
-  const userInfo = trainers.find(trainer => trainer.id === match.params.id);
+  const { userInfo } = useSelector(state => state.ACCOUNT_REDUCER);
+  // const userInfo = trainers.find(trainer => trainer.id === match.params.id);
 
   return (
     <main className="profile">
