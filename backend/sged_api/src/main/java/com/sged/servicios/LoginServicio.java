@@ -5,14 +5,21 @@
  */
 package com.sged.servicios;
 
+import com.sged.dao.DeporteDAO;
 import com.sged.dao.PersonaDao;
+import com.sged.modelo.Deporte;
 import com.sged.modelo.Persona;
+import com.sun.jersey.core.util.Base64;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.container.ContainerRequestContext;
+import javax.ws.rs.core.Context;
+
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -20,26 +27,39 @@ import javax.ws.rs.core.Response;
  *
  * @author GOAL - i8
  */
-@Path("VerificarCredenciales")
+@Path("login")
 public class LoginServicio {
 
-    @GET
-    @Path("/{documento}/{contrasena}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response login(@PathParam("documento") String cedula,
-            @PathParam("contrasena") String contrasena) {
+    @Context
+    ContainerRequestContext requestCtxt;
 
-        if ("".equals(cedula.trim()) || "".equals(contrasena.trim())) {
-            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
-        } else {
-            Persona persona = PersonaDao.verificarCredenciales(cedula, contrasena);
+    private static final String AUTHORIZATION_HEADER_KEY = "Authorization";
+    private static final String AUTHORIZATION_HEADER_PREFIX = "Basic ";
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response login() {
+        List<String> authHeader = requestCtxt.getHeaders().get(AUTHORIZATION_HEADER_KEY);
+        if (authHeader != null && authHeader.size() > 0) {
+            String authToken = authHeader.get(0);
+            authToken = authToken.replaceFirst(AUTHORIZATION_HEADER_PREFIX, "");
+            String decodedString = new String(Base64.decode(authToken));
+            //System.out.println("Decoded String here bitch: " + decodedString);
+            StringTokenizer tokenizer = new StringTokenizer(decodedString, ":");
+            String cedula = tokenizer.nextToken();
+            String password = tokenizer.nextToken();
+
+            Persona persona = PersonaDao.verificarCredenciales(cedula, password);
             if (persona != null) {
-                //return Response.status(Response.Status.ACCEPTED).build();
                 List<Persona> list = new ArrayList<>();
                 list.add(persona);
                 return Response.ok(list).build();
             }
         }
-        return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+
+        return Response.status(Response.Status.UNAUTHORIZED)
+                .entity("Wrong credentials.")
+                .build();
+
     }
 }

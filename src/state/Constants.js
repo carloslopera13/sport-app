@@ -12,5 +12,5 @@ export const LOGIN_API = "https://api.myjson.com/bins/13v751";
 export const SPORTS_API = "https://api.myjson.com/bins/13m5g1";
 export const TRAINERS_API = "https://api.myjson.com/bins/adrn5";
 
-export const SPORTS_API_CREATE = "https://api.myjson.com/bins/13m5g1";
-export const TRAINERS_API_CREATE = "https://api.myjson.com/bins/adrn5";
+export const SPORTS_API_CREATE = "localhost:8080/sged_api/api/Secured/sports/create";
+export const TRAINERS_API_CREATE = "localhost:8080/sged_api/api/Secured/trainers/create";
