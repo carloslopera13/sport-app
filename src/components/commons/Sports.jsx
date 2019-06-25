@@ -22,6 +22,7 @@ const Sports = React.memo(() => {
   return (
     <main className="sports">
       <ul>
+      <h1 className="sports__title">Deportes</h1>
         {sports &&
           sports.map(sport => (
             <li key={sport.id} className="sports-list__item">
@@ -33,6 +34,7 @@ const Sports = React.memo(() => {
             </li>
           ))}
       </ul>
+
       <div className="sports__form">
         <form className="home__form " onSubmit={handleSubmit}>
           <h1 className="home__title">Crear deporte</h1>

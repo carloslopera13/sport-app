@@ -7,10 +7,13 @@ import {
   TRAINERS_SUCCESS,
   TRAINERS_API,
   STUDENTS_SUCCESS,
+  STUDENTS_API,
   CREATE_TRAINER_SUCCESS,
   CREATE_SPORT_SUCCESS,
+  CREATE_STUDENT_SUCCESS,
   SPORTS_API_CREATE,
-  TRAINERS_API_CREATE
+  TRAINERS_API_CREATE,
+  STUDENTS_API_CREATE
 } from "./Constants";
 
 /* Account Actions */
@@ -45,6 +48,11 @@ export const createSportSuccess = payload => ({
   payload
 });
 
+export const createStudentSuccess = payload => ({
+  type: CREATE_STUDENT_SUCCESS,
+  payload
+});
+
 export const trainersLoadSuccess = payload => ({
   type: TRAINERS_SUCCESS,
   payload
@@ -62,6 +70,19 @@ export const sportsRequest = token => {
         headers: { Authorization: `Basic ${token}` }
       });
       dispatch(sportsLoadSuccess(data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const studentsRequest = token => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.get(STUDENTS_API, {
+        headers: { Authorization: `Basic ${token}` }
+      });
+      dispatch(studentsLoadSuccess(data));
     } catch (err) {
       console.log(err);
     }
@@ -115,6 +136,26 @@ export const createSport = (payload, token) => {
       dispatch(createSportSuccess(data));
 
       sportsRequest(token);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const createStudent = (payload, token) => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.post(
+        STUDENTS_API_CREATE,
+        { data: payload },
+        {
+          headers: { Authorization: `Basic ${token}` }
+        }
+      );
+
+      dispatch(createStudentSuccess(data));
+
+      studentsRequest(token);
     } catch (err) {
       console.log(err);
     }

@@ -13,10 +13,12 @@ import Trainer from "./TrainersT";
 import Sports from "./Sports";
 import Trainers from "./Trainers";
 import Profile from "./Profile";
+import Students from "./Students";
 
 import "./style.scss";
 import ProfileTrainer from "./ProfileTrainer";
 import ProfileSport from "./ProfileSport";
+import ProfileStudent from "./ProfileStudent";
 
 export const Routes = React.memo(() => {
   const { isAuthenticated, rol } = useSelector(state => state.ACCOUNT_REDUCER);
@@ -54,6 +56,11 @@ export const Routes = React.memo(() => {
           authed={isAuthenticated}
         />
         <PrivateRoute
+          path="/trainer/students"
+          component={Students}
+          authed={isAuthenticated}
+        />
+        <PrivateRoute
           path="/admin/trainers"
           component={Trainers}
           authed={isAuthenticated}
@@ -61,6 +68,11 @@ export const Routes = React.memo(() => {
         <PrivateRoute
           path="/trainer/:id"
           component={ProfileTrainer}
+          authed={isAuthenticated}
+        />
+        <PrivateRoute
+          path="/student/:id"
+          component={ProfileStudent}
           authed={isAuthenticated}
         />
         <PrivateRoute
