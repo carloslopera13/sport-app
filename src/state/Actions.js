@@ -20,10 +20,14 @@ import {
 export const loginUser = payload => {
   return async dispatch => {
     try {
-      const { data } = await axios.get(LOGIN_API, payload);
+      //const { data } = await axios.get(LOGIN_API, payload);
+      const { data } = await axios.get(LOGIN_API, {
+        headers: { Authorization: `Basic ${payload.user}:${payload.password}` }
+      });
       dispatch(loginUserSuccess(data));
     } catch (err) {
-      console.log(err);
+      alert("Datos incorrectos");
+      //console.log(err);
     }
   };
 };

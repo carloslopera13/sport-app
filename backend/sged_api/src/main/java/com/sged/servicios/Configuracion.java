@@ -13,6 +13,6 @@ import javax.ws.rs.core.Application;
  * @author GOAL
  */
 @ApplicationPath("api")
-public class Configuracion extends Application{
-     
+public class Configuracion extends Application {
+
 }

@@ -9,8 +9,8 @@ export const CREATE_SPORT_SUCCESS = "CREATE_SPORT_SUCCESS";
 export const CREATE_STUDENT_SUCCESS = "CREATE_STUDENT_SUCCESS";
 
 /* API CONSTANTS */
-export const LOGIN_API = "https://api.myjson.com/bins/13v751";
-export const SPORTS_API = "https://api.myjson.com/bins/13m5g1";
+export const LOGIN_API = "http://localhost:8080/sged_api/api/login";
+export const SPORTS_API = "http://localhost:8080/sged_api/api/sports";
 export const TRAINERS_API = "https://api.myjson.com/bins/adrn5";
 export const STUDENTS_API = "https://api.myjson.com/bins/1berlt";
 

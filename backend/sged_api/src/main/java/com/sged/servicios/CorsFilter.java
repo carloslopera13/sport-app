@@ -27,7 +27,6 @@ public class CorsFilter implements ContainerRequestFilter, ContainerResponseFilt
      */
     @Override
     public void filter(ContainerRequestContext request) throws IOException {
-        System.out.println("Llega al filtros");
         // If it's a preflight request, we abort the request with
         // a 200 status, and the CORS headers are added in the
         // response filter method below.
@@ -38,8 +37,7 @@ public class CorsFilter implements ContainerRequestFilter, ContainerResponseFilt
     }
 
     /**
-     * A preflight request is an OPTIONS request
-     * with an Origin header.
+     * A preflight request is an OPTIONS request with an Origin header.
      */
     private static boolean isPreflightRequest(ContainerRequestContext request) {
         return request.getHeaderString("Origin") != null
@@ -64,13 +62,13 @@ public class CorsFilter implements ContainerRequestFilter, ContainerResponseFilt
         if (isPreflightRequest(request)) {
             response.getHeaders().add("Access-Control-Allow-Credentials", "true");
             response.getHeaders().add("Access-Control-Allow-Methods",
-                "GET, POST, PUT, DELETE, OPTIONS, HEAD");
+                    "GET, POST, PUT, DELETE, OPTIONS, HEAD");
             response.getHeaders().add("Access-Control-Allow-Headers",
-                // Whatever other non-standard/safe headers (see list above) 
-                // you want the client to be able to send to the server,
-                // put it in this list. And remove the ones you don't want.
-                "X-Requested-With, Authorization, " +
-                "Accept-Version, Content-MD5, CSRF-Token");
+                    // Whatever other non-standard/safe headers (see list above) 
+                    // you want the client to be able to send to the server,
+                    // put it in this list. And remove the ones you don't want.
+                    "X-Requested-With, Authorization, "
+                    + "Accept-Version, Content-MD5, CSRF-Token");
         }
 
         // Cross origin requests can be either simple requests
