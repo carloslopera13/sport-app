@@ -7,13 +7,14 @@ export const STUDENTS_SUCCESS = "STUDENTS_SUCCESS";
 export const CREATE_TRAINER_SUCCESS = "CREATE_TRAINER_SUCCESS";
 export const CREATE_SPORT_SUCCESS = "CREATE_SPORT_SUCCESS";
 export const CREATE_STUDENT_SUCCESS = "CREATE_STUDENT_SUCCESS";
+export const SIGN_OUT = "SIGN_OUT";
 
 /* API CONSTANTS */
-export const LOGIN_API = "http://localhost:8080/sged_api/api/login";
-export const SPORTS_API = "http://localhost:8080/sged_api/api/sports";
-export const TRAINERS_API = "https://api.myjson.com/bins/adrn5";
-export const STUDENTS_API = "https://api.myjson.com/bins/1berlt";
+export const API_URL = "http://localhost:3004/";
 
-export const SPORTS_API_CREATE = "localhost:8080/sged_api/api/Secured/sports/create";
-export const TRAINERS_API_CREATE = "localhost:8080/sged_api/api/Secured/trainers/create";
-export const STUDENTS_API_CREATE = "localhost:8080/sged_api/api/Secured/students/create";
+export const SPORTS_API_CREATE =
+  "localhost:8080/sged_api/api/Secured/sports/create";
+export const TRAINERS_API_CREATE =
+  "localhost:8080/sged_api/api/Secured/trainers/create";
+export const STUDENTS_API_CREATE =
+  "localhost:8080/sged_api/api/Secured/students/create";

@@ -4,19 +4,21 @@ import {
   SPORTS_SUCCESS,
   TRAINERS_SUCCESS,
   STUDENTS_SUCCESS,
-  CREATE_TRAINER_SUCCESS,
-  CREATE_SPORT_SUCCESS,
-  CREATE_STUDENT_SUCCESS
+  SIGN_OUT
 } from "./Constants";
 
 const initialAccountState = {
-  token: "",
-  userInfo: {},
+  token: null,
+  email: "",
+  lastName: "",
+  name: "",
+  phoneNumber: "",
+  isAuthenticated: false,
+  rol: null,
+
   sports: [],
   trainers: [],
-  students: [],
-  isAuthenticated: false,
-  rol: null
+  students: []
 };
 
 const ACCOUNT_REDUCER = (state = initialAccountState, { type, payload }) => {
@@ -24,27 +26,22 @@ const ACCOUNT_REDUCER = (state = initialAccountState, { type, payload }) => {
     case ACCOUNT_LOGIN_SUCCESS:
       return {
         ...state,
-        token: payload.token,
-        userInfo: payload.userInfo,
+        email: payload.email,
         isAuthenticated: true,
-        rol: payload.rol
+        lastName: payload.lastName,
+        name: payload.name,
+        phoneNumber: payload.phoneNumber,
+        rol: payload.rol,
+        token: payload.token
       };
-    case SPORTS_SUCCESS: {
-      return {
-        ...state,
-        sports: payload
-      };
-    }
+    case SPORTS_SUCCESS:
+      return { ...state, sports: payload };
     case TRAINERS_SUCCESS:
       return { ...state, trainers: payload };
-      case STUDENTS_SUCCESS:
-        return { ...state, students: payload };
-    case CREATE_TRAINER_SUCCESS:
-      return { ...state, trainers: payload };
-    case CREATE_SPORT_SUCCESS:
-      return { ...state, sports: payload };
-    case CREATE_STUDENT_SUCCESS:
+    case STUDENTS_SUCCESS:
       return { ...state, students: payload };
+    case SIGN_OUT:
+      return { ...state, isAuthenticated: false };
     default:
       return state;
   }

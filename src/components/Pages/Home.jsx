@@ -20,8 +20,8 @@ const Home = () => {
       <form className="home__form " onSubmit={handleSubmit}>
         <h1 className="home__title">Iniciar Sesión</h1>
         <label>
-          Cédula:
-          <input name="user" type="text" placeholder="Cédula" required />
+          Usuario:
+          <input name="user" type="text" placeholder="Usuario" required />
         </label>
         <label>
           Contraseña:

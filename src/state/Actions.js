@@ -1,33 +1,24 @@
 import axios from "axios";
 import {
-  LOGIN_API,
+  API_URL,
   ACCOUNT_LOGIN_SUCCESS,
-  SPORTS_API,
   SPORTS_SUCCESS,
-  TRAINERS_SUCCESS,
-  TRAINERS_API,
-  STUDENTS_SUCCESS,
-  STUDENTS_API,
-  CREATE_TRAINER_SUCCESS,
-  CREATE_SPORT_SUCCESS,
   CREATE_STUDENT_SUCCESS,
-  SPORTS_API_CREATE,
-  TRAINERS_API_CREATE,
-  STUDENTS_API_CREATE
+  TRAINERS_SUCCESS,
+  STUDENTS_SUCCESS,
+  SIGN_OUT
 } from "./Constants";
 
 /* Account Actions */
 export const loginUser = payload => {
   return async dispatch => {
     try {
-      //const { data } = await axios.get(LOGIN_API, payload);
-      const { data } = await axios.get(LOGIN_API, {
-        headers: { Authorization: `Basic ${payload.user}:${payload.password}` }
-      });
+      const { data } = await axios.get(`${API_URL}users`);
+
       dispatch(loginUserSuccess(data));
     } catch (err) {
-      alert("Datos incorrectos");
-      //console.log(err);
+      // alert("Datos incorrectos");
+      console.log(err);
     }
   };
 };
@@ -39,16 +30,6 @@ export const loginUserSuccess = payload => ({
 
 export const sportsLoadSuccess = payload => ({
   type: SPORTS_SUCCESS,
-  payload
-});
-
-export const createTrainerSuccess = payload => ({
-  type: CREATE_TRAINER_SUCCESS,
-  payload
-});
-
-export const createSportSuccess = payload => ({
-  type: CREATE_SPORT_SUCCESS,
   payload
 });
 
@@ -67,12 +48,14 @@ export const studentsLoadSuccess = payload => ({
   payload
 });
 
-export const sportsRequest = token => {
+export const signOut = () => ({
+  type: SIGN_OUT
+});
+
+export const sportsRequest = () => {
   return async dispatch => {
     try {
-      const { data } = await axios.get(SPORTS_API, {
-        headers: { Authorization: `Basic ${token}` }
-      });
+      const { data } = await axios.get(`${API_URL}sports`);
       dispatch(sportsLoadSuccess(data));
     } catch (err) {
       console.log(err);
@@ -80,25 +63,11 @@ export const sportsRequest = token => {
   };
 };
 
-export const studentsRequest = token => {
+export const trainersRequest = () => {
   return async dispatch => {
     try {
-      const { data } = await axios.get(STUDENTS_API, {
-        headers: { Authorization: `Basic ${token}` }
-      });
-      dispatch(studentsLoadSuccess(data));
-    } catch (err) {
-      console.log(err);
-    }
-  };
-};
+      const { data } = await axios.get(`${API_URL}trainers`);
 
-export const trainersRequest = token => {
-  return async dispatch => {
-    try {
-      const { data } = await axios.get(TRAINERS_API, {
-        headers: { Authorization: `Basic ${token}` }
-      });
       dispatch(trainersLoadSuccess(data));
     } catch (err) {
       console.log(err);
@@ -106,20 +75,13 @@ export const trainersRequest = token => {
   };
 };
 
-export const createTrainer = (payload, token) => {
+export const createTrainer = payload => {
+  console.log("TCL: payload", payload);
   return async dispatch => {
     try {
-      const { data } = await axios.post(
-        TRAINERS_API_CREATE,
-        { data: payload },
-        {
-          headers: { Authorization: `Basic ${token}` }
-        }
-      );
+      await axios.post(`${API_URL}trainers`, { ...payload });
 
-      dispatch(createTrainerSuccess(data));
-
-      trainersRequest(token);
+      dispatch(trainersRequest());
     } catch (err) {
       console.log(err);
     }
@@ -129,37 +91,9 @@ export const createTrainer = (payload, token) => {
 export const createSport = (payload, token) => {
   return async dispatch => {
     try {
-      const { data } = await axios.post(
-        SPORTS_API_CREATE,
-        { data: payload },
-        {
-          headers: { Authorization: `Basic ${token}` }
-        }
-      );
+      await axios.post(`${API_URL}sports`, { ...payload });
 
-      dispatch(createSportSuccess(data));
-
-      sportsRequest(token);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-};
-
-export const createStudent = (payload, token) => {
-  return async dispatch => {
-    try {
-      const { data } = await axios.post(
-        STUDENTS_API_CREATE,
-        { data: payload },
-        {
-          headers: { Authorization: `Basic ${token}` }
-        }
-      );
-
-      dispatch(createStudentSuccess(data));
-
-      studentsRequest(token);
+      dispatch(sportsRequest());
     } catch (err) {
       console.log(err);
     }
