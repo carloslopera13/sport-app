@@ -3,140 +3,56 @@
     "id": 1,
     "rol": "admin",
     "token": "12345",
-    "name": "Pacho",
-    "lastName": "Pchorra",
-    "phoneNumber": "4322344",
-    "email": "pachoen69@gmail.es"
+    "name": "Carlos",
+    "lastName": "Lopera",
+    "phoneNumber": "555-55-55",
+    "email": "clopera@gmail.es"
   },
   "trainers": [
     {
       "id": 1,
-      "rol": "admin",
-      "token": "12345",
-      "name": "Pacho",
-      "lastName": "Pchorra",
-      "phoneNumber": "4322344",
-      "email": "pachoen69@gmail.es"
+      "name": "Santiago",
+      "lastName": "Hernandez",
+      "phoneNumber": "444-44-44",
+      "email": "shernam@gmail.es"
     },
     {
       "id": 2,
-      "rol": "trainer",
-      "token": "12345",
-      "name": "Pacho 69",
-      "lastName": "Pchorra",
-      "phoneNumber": "4322344",
-      "email": "pachoen69@gmail.es"
+      "name": "Juan Pablo",
+      "lastName": "Tobon",
+      "phoneNumber": "333-33-33",
+      "email": "jtobon@gmail.es"
     },
     {
-      "name": "Pachito",
-      "lastName": "En 4",
-      "email": "pacho4@gmail.es",
-      "phoneNumber": "4444",
+      "name": "Diego",
+      "lastName": "Gomez",
+      "email": "dgomez@gmail.es",
+      "phoneNumber": "222-22-22",
       "id": 3
     },
     {
-      "name": "Andrés Felipe Álvarez Caballero",
-      "lastName": "Hernandez",
-      "email": "andres.alvarez@mattersupply.co",
-      "phoneNumber": "5665555",
+      "name": "carlos",
+      "lastName": "lopera",
+      "email": "carloslopera13@gmail.com",
+      "phoneNumber": "222222",
       "id": 4
     }
   ],
   "sports": [
     {
-      "id": 2,
-      "name": "Pacho en 4",
-      "capacity": "99"
+      "id": 1,
+      "name": "Soccer",
+      "capacity": "30"
     },
     {
-      "id": 5,
-      "name": "Pacho en 4",
-      "capacity": "99"
+      "name": "Basquetball",
+      "capacity": "28",
+      "id": 2
     },
     {
-      "id": 7,
-      "name": "Pacho en 4",
-      "capacity": "99"
-    },
-    {
-      "name": "Andrés Felipe Álvarez Caballero",
-      "capacity": "Jajaja",
-      "id": 8
-    },
-    {
-      "name": "Pachito en 5",
-      "capacity": "pachorra",
-      "id": 9
-    },
-    {
-      "name": "Pachito en 5",
-      "capacity": "pachorra",
-      "id": 10
-    },
-    {
-      "name": "Pachito en 5",
-      "capacity": "pachorra",
-      "id": 11
-    },
-    {
-      "name": "Pachito en 5",
-      "capacity": "pachorra",
-      "id": 12
-    },
-    {
-      "name": "Pachito en 5",
-      "capacity": "pachorra",
-      "id": 13
-    },
-    {
-      "name": "Pachito en 5",
-      "capacity": "pachorra",
-      "id": 14
-    },
-    {
-      "name": "Pachito en 5",
-      "capacity": "pachorra",
-      "id": 15
-    },
-    {
-      "name": "Pachito en 5",
-      "capacity": "pachorra",
-      "id": 16
-    },
-    {
-      "name": "Jaimico",
-      "capacity": "pachorra",
-      "id": 17
-    },
-    {
-      "name": "Jaimico",
-      "capacity": "pachorra",
-      "id": 18
-    },
-    {
-      "name": "Jaimico",
-      "capacity": "pachorra",
-      "id": 19
-    },
-    {
-      "name": "Jaimico",
-      "capacity": "pachorra",
-      "id": 20
-    },
-    {
-      "name": "Jaimico",
-      "capacity": "pachorra",
-      "id": 21
-    },
-    {
-      "name": "Jaimico",
-      "capacity": "pachorra",
-      "id": 22
-    },
-    {
-      "name": "Jaimico",
-      "capacity": "pachorra",
-      "id": 23
+      "name": "Voleyball",
+      "capacity": "10",
+      "id": 3
     }
   ]
 }

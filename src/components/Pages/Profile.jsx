@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Header from "../commons/Header";
 
 const Profile = React.memo(() => {
-  const { name, lastName, phoneNumber, email } = useSelector(
+  const { name, lastName, rol, phoneNumber, email } = useSelector(
     state => state.ACCOUNT_REDUCER
   );
 
@@ -25,6 +25,9 @@ const Profile = React.memo(() => {
           <p className="profile__text">
             <span>Apellido: </span>
             {lastName}
+          </p>
+          <p className="profile__text">
+            <span>Rol: </span> {rol}
           </p>
           <p className="profile__text">
             <span>Telefono: </span> {phoneNumber}
