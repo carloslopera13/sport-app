@@ -6,15 +6,18 @@ import {
   CREATE_STUDENT_SUCCESS,
   TRAINERS_SUCCESS,
   STUDENTS_SUCCESS,
-  SIGN_OUT
+  SIGN_OUT,
+  LOGIN_API
 } from "./Constants";
 
 /* Account Actions */
 export const loginUser = payload => {
   return async dispatch => {
     try {
-      const { data } = await axios.get(`${API_URL}users`);
-
+      const { data } = await axios.get(LOGIN_API, {
+        headers: { Authorization: `Basic ${payload.user}:${payload.password}` }
+      });
+      console.log(data);
       dispatch(loginUserSuccess(data));
     } catch (err) {
       // alert("Datos incorrectos");

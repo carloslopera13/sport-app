@@ -18,3 +18,5 @@ export const TRAINERS_API_CREATE =
   "localhost:8080/sged_api/api/Secured/trainers/create";
 export const STUDENTS_API_CREATE =
   "localhost:8080/sged_api/api/Secured/students/create";
+
+export const LOGIN_API = "http://localhost:8080/sged_api/api/login";
