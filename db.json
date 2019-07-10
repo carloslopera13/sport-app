@@ -10,47 +10,40 @@
   },
   "trainers": [
     {
-      "id": 1,
-      "name": "Santiago",
-      "lastName": "Hernandez",
-      "phoneNumber": "444-44-44",
-      "email": "shernam@gmail.es"
-    },
-    {
-      "id": 2,
-      "name": "Juan Pablo",
-      "lastName": "Tobon",
-      "phoneNumber": "333-33-33",
-      "email": "jtobon@gmail.es"
-    },
-    {
-      "name": "Diego",
-      "lastName": "Gomez",
-      "email": "dgomez@gmail.es",
+      "name": "Diego el sapogato",
+      "lastName": "encuatro ssss",
+      "email": "dgomez@gmail.essssfefe",
       "phoneNumber": "222-22-22",
       "id": 3
     },
     {
-      "name": "carlos",
-      "lastName": "lopera",
+      "name": "carlos loperra",
+      "lastName": "alvkaj",
       "email": "carloslopera13@gmail.com",
       "phoneNumber": "222222",
       "id": 4
+    },
+    {
+      "name": "Pedro scamoso",
+      "lastName": "Scamoso",
+      "email": "andres_9722@outlook.com",
+      "phoneNumber": "5665555",
+      "id": 5
     }
   ],
   "sports": [
     {
-      "id": 1,
-      "name": "Soccer",
-      "capacity": "30"
+      "name": "Soccer melon",
+      "capacity": "1222",
+      "id": 1
     },
     {
-      "name": "Basquetball",
+      "name": "Basquetball acuatiko",
       "capacity": "28",
       "id": 2
     },
     {
-      "name": "Voleyball",
+      "name": "Voleyball playa",
       "capacity": "10",
       "id": 3
     }

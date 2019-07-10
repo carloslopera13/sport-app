@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import serialize from "form-serialize";
 import { useSelector, useDispatch } from "react-redux";
 
-import { trainersRequest, createTrainer } from "../../state/Actions";
+import {
+  trainersRequest,
+  createTrainer,
+  deleteTrainer
+} from "../../state/Actions";
 import Header from "../commons/Header";
 
 const Trainers = () => {
@@ -14,6 +18,12 @@ const Trainers = () => {
     evt.preventDefault();
     const form = serialize(evt.target, { hash: true });
     dispatch(createTrainer(form, token));
+  };
+
+  const handleDeleteTrainer = id => () => {
+    if (window.confirm("Esta seguro pa?")) {
+      dispatch(deleteTrainer(id));
+    }
   };
 
   useEffect(() => {
@@ -68,6 +78,24 @@ const Trainers = () => {
                   <Link to={`/trainer/${trainer.id}`}>
                     {trainer.id} - {trainer.name}
                   </Link>
+                  <div>
+                    <span
+                      onClick={() => console.log(trainer.id)}
+                      role="img"
+                      aria-label="delete"
+                    >
+                      {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
+                      <Link to={`/update-trainer/${trainer.id}`}>✏️</Link>
+                    </span>
+
+                    <span
+                      onClick={handleDeleteTrainer(trainer.id)}
+                      role="img"
+                      aria-label="delete"
+                    >
+                      ❌
+                    </span>
+                  </div>
                 </div>
               </li>
             ))}

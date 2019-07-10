@@ -16,6 +16,8 @@ import SingleSport from "./SingleSport";
 import "../commons/style.scss";
 import Sports from "./Sports";
 import Trainers from "./Trainers";
+import UpdateTrainer from "./UpdateTrainer";
+import UpdateSport from "./UpdateSport";
 
 export const Routes = React.memo(() => {
   const { isAuthenticated } = useSelector(state => state.ACCOUNT_REDUCER);
@@ -50,6 +52,20 @@ export const Routes = React.memo(() => {
           path="/trainers"
           authed={isAuthenticated}
           component={Trainers}
+          exact
+        />
+
+        <PrivateRoute
+          path="/update-trainer/:id"
+          authed={isAuthenticated}
+          component={UpdateTrainer}
+          exact
+        />
+
+        <PrivateRoute
+          path="/update-sport/:id"
+          authed={isAuthenticated}
+          component={UpdateSport}
           exact
         />
 

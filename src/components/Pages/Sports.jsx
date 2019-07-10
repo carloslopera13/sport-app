@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import serialize from "form-serialize";
 
 import { useDispatch, useSelector } from "react-redux";
-import { sportsRequest, createSport } from "../../state/Actions";
+import { sportsRequest, createSport, deleteSport } from "../../state/Actions";
 import Header from "../commons/Header";
 
 const Sports = () => {
@@ -14,6 +14,12 @@ const Sports = () => {
     evt.preventDefault();
     const form = serialize(evt.target, { hash: true });
     dispatch(createSport(form, token));
+  };
+
+  const handleDeleteSport = id => () => {
+    if (window.confirm("Esta seguro pa?")) {
+      dispatch(deleteSport(id));
+    }
   };
 
   useEffect(() => {
@@ -55,6 +61,24 @@ const Sports = () => {
                   <Link to={`/sport/${sport.id}`}>
                     {sport.id} - {sport.name}
                   </Link>
+                  <div>
+                    <span
+                      onClick={() => console.log(sport.id)}
+                      role="img"
+                      aria-label="delete"
+                    >
+                      {/* eslint-disable-next-line jsx-a11y/accessible-emoji */}
+                      <Link to={`/update-sport/${sport.id}`}>✏️</Link>
+                    </span>
+
+                    <span
+                      onClick={handleDeleteSport(sport.id)}
+                      role="img"
+                      aria-label="delete"
+                    >
+                      ❌
+                    </span>
+                  </div>
                 </div>
               </li>
             ))}
